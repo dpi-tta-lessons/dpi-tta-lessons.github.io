@@ -6,7 +6,6 @@ subheading: Full stack application development for beginners
 
 {% assign lessons = site.pages | where_exp: 'page', 'page.path contains "lessons/"' %}
 
-<h2>All Lesson Pages</h2>
 <ul>
   {% for lesson in lessons %}
     <li><a href="{{ lesson.url }}">{{ lesson.title }}</a></li>

@@ -13,15 +13,36 @@
     <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@hotwired/stimulus": "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js",
+          "controllers/toc_controller": "/assets/js/controllers/toc_controller.js"
+        }
+      }
+    </script>
+    <script type="module" src="{{ '/assets/js/application.js' | relative_url }}"></script>
+
   </head>
   <body>
     {% include nav.html %}
-    <div class="container">
-      <h1>{{ page.title }}</h1>
-      <p class="lead">{{ page.subheading }}</p>
-      <section>
-        {{ content }}
-      </section>
+    <div class="container-xxl">
+      <div class="row">
+        <!-- Main lesson content -->
+        <div class="col-lg-9 pt-4">
+          <h1>{{ page.title }}</h1>
+          {% if page.subheading %}
+            <p class="lead">{{ page.subheading }}</p>
+          {% endif %}
+  
+          <main id="lesson">
+            {{ content }}
+          </main>
+        </div>
+
+        {% include toc.html %}
+      </div>
     </div>
     {% include footer.html %}
   </body>

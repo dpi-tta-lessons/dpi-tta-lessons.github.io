@@ -1,7 +1,7 @@
 /* TOC */
 
 :root {
-  --toc-offset-top: 80px;
+  --toc-offset-top: 5rem;
 }
 
 .toc-sticky {

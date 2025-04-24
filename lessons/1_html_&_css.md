@@ -4,38 +4,6 @@ title: HTML & CSS
 subheading: Get your first taste of HTML & CSS coding with our crash course.
 ---
 
-<!-- Before we get into the HTML review, let's talk about the elements in this interactive lesson.
-
-## Interactive code blocks
-
-We will have lots of examples of code in the readings. These are called "code blocks", and you'll see them all over the internet. For example:
-
-```html
-<span>I'm some HTML</span>
-```
-
-That code block is not interactive — you can only read it.
-
-However, some of our code blocks, are _runnable_ — you can run the code within and see the output. Just running them once is enough to get full credit. **You must run each of them to get credit**. Try clicking the "Run" button below this block:
-
-```html
-Welcome to the lesson!
-``` -->
-
-<!-- {: .repl #first_runnable_code title="First runnable code" points="1"} -->
-
-<!-- It will take a moment, but then the output of the program in the pane on the left (called the **editor**) will be displayed in the pane on the right (called the **terminal**) 🎉
-
-Most importantly, you can _change_ the code and re-run it to see how the output changes. You should always be:
-
-* Thinking, "What if I changed it like _this_? What would it do then?"  
-* Predict what you _think_ will happen.
-* Try it, run it, compare the actual behavior to the behavior you predicted, and learn!
-
-You can press "Reset" to get the editor back to its original state.
-
-Okay, let's get on with it! -->
-
 ## Just text
 
 The web is, mostly, a bunch of text.
@@ -58,11 +26,11 @@ You can learn about the world at <a href="https://www.wikipedia.org/" target="_b
 
 With hyperlinks, we can make it easy for our users to **navigate** from URL to URL. This is what makes plain ol' text into **hyper text** (the H and the T in HTML).
 
-Hypertext documents linked to one another is what makes the Web a web! All web sites and web apps are based on this fundamental idea.
-
 <aside>
   <p>"Hyperlinks" are also known as "links", a.k.a. "anchors", a.k.a. `a` tags.</p>
 </aside>
+
+Hypertext documents linked to one another is what makes the Web a web! All web sites and web apps are based on this fundamental idea.
 
 ## Anatomy of an HTML element
 

@@ -32,22 +32,17 @@
       <div class="row">
         <!-- Lesson + TOC wrapper -->
         <div class="col-12 d-flex flex-column flex-lg-row gap-3">
-          
           <!-- Main lesson content -->
           <div class="col-lg-9" id="lesson">
             <h1>{{ page.title }}</h1>
             {% if page.subheading %}
               <p class="lead">{{ page.subheading }}</p>
             {% endif %}
-
             {% include toc_mobile.html %}
-    
-            <main>
+            <main id="lesson-content">
               {{ content }}
             </main>
-            
           </div>
-
           {% include toc_desktop.html %}
         </div>
       </div>

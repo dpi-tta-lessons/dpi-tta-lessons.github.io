@@ -262,7 +262,7 @@ Words, images, and other **inline** items are placed side by side horizontally.
 
 Paragraphs, headings, and other **blocks** are placed above and below one another vertically.
 
-<img alt="typesetting" class="img-fluid" src="https://res.cloudinary.com/dmxgp9oq2/image/upload/v1687373236/typesetting_hfhnil.gif">
+![typesetting](https://res.cloudinary.com/dmxgp9oq2/image/upload/v1687373236/typesetting_hfhnil.gif){: .img-fluid }
 
 So: in flow layout, if we don't want all of our content to be on the same line, we need to create some elements that act as **block** elements. By default, `<span>`, `<a>`, and `<img>` elements all act as **inline** elements.
 

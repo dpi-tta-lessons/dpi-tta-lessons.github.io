@@ -1,12 +1,12 @@
 ---
-layout: default
+layout: lesson
 title: HTML & CSS
 subheading: Get your first taste of HTML & CSS coding with our crash course.
 ---
 
 <!-- Before we get into the HTML review, let's talk about the elements in this interactive lesson.
 
-### Interactive code blocks
+## Interactive code blocks
 
 We will have lots of examples of code in the readings. These are called "code blocks", and you'll see them all over the internet. For example:
 
@@ -36,7 +36,7 @@ You can press "Reset" to get the editor back to its original state.
 
 Okay, let's get on with it! -->
 
-### Just text
+## Just text
 
 The web is, mostly, a bunch of text.
 
@@ -48,7 +48,7 @@ You can learn about the world at Wikipedia.
 
 Most of the incredible value of the internet is based in making it easy to distribute and access information, instantaneously and across any distance.
 
-### Not just text — _hyper_ text
+## Not just text — _hyper_ text
 
 ```html
 You can learn about the world at <a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>.
@@ -64,7 +64,7 @@ Hypertext documents linked to one another is what makes the Web a web! All web s
   <p>"Hyperlinks" are also known as "links", a.k.a. "anchors", a.k.a. `a` tags.</p>
 </aside>
 
-### Anatomy of an HTML element
+## Anatomy of an HTML element
 
 In the below example, the entire **syntax** (or "grammar") of the HTML language can be seen:
 
@@ -110,7 +110,7 @@ Consider this HTML:
   * Close! But, not quite. Re-read above.
 {: .choose_best #html_structure title="HTML structure" points="1" answer="3" } -->
 
-### A very special attribute: `style`
+## A very special attribute: _style_
 
 There's a very special attribute we can use to change how an element looks — `style`:
 
@@ -154,7 +154,7 @@ As you can see, the `font-size` property is how we can change how big text is. I
   * Not quite.
 {: .free_text #declaration title="CSS property: value" points="1" answer="1" } -->
 
-### Adding structure with `<span>`
+## Adding structure with _span_
 
 What if we want to change the look of some of the text that's _not_ within an `<a>` tag? What would we add the `style` attribute to? For example, what if we wanted the text "learn about the world" to be italic?
 
@@ -191,7 +191,7 @@ Instead, `<span>` is used to add _structure_ to our content so that we can then 
   * Yes!
 {: .choose_best #span_and_a title="<span> and <a>" points="1" answer="4" } -->
 
-### The `<img>` element
+## The _img_ element
 
 There's a very special element that allows us to embed images right into our documents: `<img>`.
 
@@ -209,7 +209,7 @@ You can <span>learn about the world</span> at <a style="color: red; font-size: 5
 
 <!-- {: .repl #first_image title="First image" points="1"} -->
 
-### The HTML family tree
+## The HTML family tree
 
 Elements can contain other elements:
 
@@ -238,7 +238,7 @@ Elements can contain other elements:
   * Not quite. Re-read above.
 {: .choose_best #descendants_are title="Descendants are..." points="1" answer="1" } -->
 
-### All whitespace collapses to a single space
+## All whitespace collapses to a single space
 
 ```html
 You        can
@@ -272,7 +272,7 @@ So, then: how can we position content around the page, rather than all on the sa
 
 Right now, they run into each other and form a wall of text. What's the solution?
 
-### Layout systems
+## Layout systems
 
 To position content wherever we wish, we need to choose and use one of the many layout systems that HTML provides:
 
@@ -280,7 +280,7 @@ To position content wherever we wish, we need to choose and use one of the many 
 * Flexbox
 * Positioned, Grid, and a few others; but we're going to focus on the above two for now.
 
-### In the beginning, there was Flow
+## In the beginning, there was Flow
 
 The very first layout system offered by HTML was called **flow layout**. For a long time, it was the _only_ layout system.
 
@@ -294,7 +294,7 @@ Words, images, and other **inline** items are placed side by side horizontally.
 
 Paragraphs, headings, and other **blocks** are placed above and below one another vertically.
 
-![](https://res.cloudinary.com/dmxgp9oq2/image/upload/v1687373236/typesetting_hfhnil.gif)
+<img alt="typesetting" class="img-fluid" src="https://res.cloudinary.com/dmxgp9oq2/image/upload/v1687373236/typesetting_hfhnil.gif">
 
 So: in flow layout, if we don't want all of our content to be on the same line, we need to create some elements that act as **block** elements. By default, `<span>`, `<a>`, and `<img>` elements all act as **inline** elements.
 
@@ -310,7 +310,7 @@ How can we make an element act as a block instead of inline? With the `display: 
 
 Voila! The two spans are now blocks, so they take up the full width of the page, and are stacked vertically on top of one another.
 
-### The `<div>` element
+## The _div_ element
 
 We're going to need a _lot_ of block level elements. It would be a pain to have to add `style="display: block"` to `<span>`s over and over and over every time we wanted a block element; so, HTML provides a shortcut — the `<div>` element:
 
@@ -341,7 +341,7 @@ Phew, that's going to save us a lot of typing!
   * Yes!
 {: .choose_all #flow_quiz title="Flow quiz" points="3" answer="[2,3,6]" } -->
 
-### Drawing borders around elements
+## Drawing borders around elements
 
 A very handy set of CSS properties lets us draw borders around elements. Borders are essential for almost every design, but they're also really nice when learning & debugging, because it makes it easier to see where each element is and how much space it is taking up.
 
@@ -395,7 +395,7 @@ If you want to, you can set the border for each side individually, with the `bor
 
 <!-- {: .repl #border_sides title="border sides" points="1"} -->
 
-#### Rounding corners with `border-radius`
+### Rounding corners with _border-radius_
 
 You can round the corners of an element using the `border-radius` property:
 
@@ -405,7 +405,7 @@ You can round the corners of an element using the `border-radius` property:
 
 <!-- {: .repl #border_radius title="border radius" points="1"} -->
 
-### `text-align`
+## _text-align_
 
 We can control the alignment of text within a parent with the `text-align` property:
 
@@ -417,7 +417,7 @@ We can control the alignment of text within a parent with the `text-align` prope
 
 <!-- {: .repl #text-align title="text-align" points="1"} -->
 
-### The box model
+## The box model
 
 For elements that are `display: block`, we can set a few useful properties:
 
@@ -449,7 +449,7 @@ You can also individually set `padding-top`, `padding-bottom`, `padding-left`, `
   * Not quite. Re-read above.
 {: .choose_best #margin_is title="margin is..." points="1" answer="2" } -->
 
-### CSS style rules
+## CSS style rules
 
 We're often going to want to apply the same set of styles to multiple elements in our HTML document; sometimes to _hundreds_ of elements. It's a big pain to have to repeat the same, long `style="..."` attribute on lots of elements.
 
@@ -514,7 +514,7 @@ Nice! Now we can apply a set of declarations to hundreds or thousands of element
   * Yes!
 {: .choose_best #div_selector_does title="The div does..." points="1" answer="4" } -->
 
-### CSS selectors
+## CSS selectors
 
 The two main types of selectors we're going to focus on for now are **tag-type** selectors and **class-level** selectors.
 
@@ -630,7 +630,7 @@ For 99% of our CSS work, we will be defining class-level style rules and then ap
   * Not quite. Look at the example above.
 {: .choose_all #selector_quiz title="Selector quiz" points="2" answer="[1,3]" } -->
 
-### Flexbox layout
+## Flexbox layout
 
 As the web matured, people started using it for more than just sharing research papers. It became a platform for stores, photo albums, games, and a million other things — _apps_.
 
@@ -700,11 +700,11 @@ Importantly, `display: flex` only affects how _immediate children_ are positione
 
 By default, `flex-direction` is `row` (horizontal). You can also set `flex-direction` to be `column`, in which case children will be laid out vertically (similar to block layout). We mostly use flexbox layout when we want to break out of flow layout to achieve horizontal positioning, so for now we'll focus on `row`; but we'll use both directions eventually.
 
-### justify-content and align-items
+## _justify-content_ and _align-items_
 
 Now that the children element are being laid out with flexbox, we have a few new properties available to us on the parent. Most importantly: `justify-content` and `align-items`.
 
-#### justify-content
+### _justify-content_
 
 When `flex-direction` is `row`, the `justify-content` property determines how any leftover horizontal space within the parent is used. There are five values we can set:
 
@@ -746,7 +746,7 @@ When `flex-direction` is `row`, the `justify-content` property determines how an
 
 Try out all five values for `justify-content` in the runnable code block above.
 
-#### align-items
+### _align-items_
 
 When `flex-direction` is `row`, the `align-items` property determines how children are placed vertically within the parent. There are five values we can set:
 
@@ -790,7 +790,7 @@ When `flex-direction` is `row`, the `align-items` property determines how childr
 
 Try out the values for `align-items` in the runnable code block above.
 
-### Flexbox froggy
+## Flexbox froggy
 
 That's all you need to know about flexbox for the moment, but if and when you run into a situation where you want to know how to do more, here is an interactive game you can play through to become a flexbox expert:
 
@@ -798,7 +798,7 @@ That's all you need to know about flexbox for the moment, but if and when you ru
 
 You don't have to play through it right now, but keep it in mind.
 
-### That's all, for now
+## That's all, for now
 
 This concludes my ultra-minimal review of HTML & CSS. I hope it helped fill in a few gaps.
 

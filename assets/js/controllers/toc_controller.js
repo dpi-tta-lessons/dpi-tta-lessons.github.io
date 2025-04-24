@@ -31,21 +31,25 @@ export default class extends Controller {
   }
 
   setupScrollSpy() {
+    const headings = document.querySelectorAll(this.levelsValue.join(","));
+    const links = Array.from(this.element.querySelectorAll("a.nav-link"));
     const observer = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        const id = entry.target.id;
-        const link = this.element.querySelector(`a[href="#${id}"]`);
-        if (link) {
-          link.classList.toggle("active", entry.isIntersecting);
-        }
+      // Get all intersecting entries that are visible
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top);
+  
+      if (visible.length > 0) {
+        const activeId = visible[0].target.id;
+  
+        links.forEach(link => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${activeId}`);
+        });
       }
     }, {
-      rootMargin: "0px 0px -80% 0px", // Adjust when "active" triggers
-      threshold: 1.0
+      rootMargin: "0px 0px -60% 0px", // triggers earlier in scroll
+      threshold: 0.1
     });
-
-    const content = document.querySelector(this.contentValue || "#lesson");
-    const headings = content.querySelectorAll(this.levelsValue.join(","));
     headings.forEach(h => observer.observe(h));
   }
 }

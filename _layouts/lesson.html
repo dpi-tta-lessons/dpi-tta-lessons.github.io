@@ -18,7 +18,10 @@
     <script type="importmap">
       {
         "imports": {
+          "monaco-editor": "https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/+esm",
           "@hotwired/stimulus": "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js",
+          "controllers/boot_controller": "/assets/js/controllers/boot_controller.js",
+          "controllers/live_code_controller": "/assets/js/controllers/live_code_controller.js",
           "controllers/theme_controller": "/assets/js/controllers/theme_controller.js",
           "controllers/toc_controller": "/assets/js/controllers/toc_controller.js"
         }
@@ -27,7 +30,7 @@
     <script type="module" src="{{ '/assets/js/application.js' | relative_url }}"></script>
 
   </head>
-  <body>
+  <body data-controller="boot">
     {% include nav.html %}
     <div class="container py-4">
       <div class="row">

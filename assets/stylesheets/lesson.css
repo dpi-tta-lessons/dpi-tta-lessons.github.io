@@ -1,4 +1,4 @@
-#lesson-content > aside {
+#lesson-content aside {
   width: 40%;
   padding-left: 0.5rem;
   margin-left: 0.5rem;
@@ -8,15 +8,20 @@
   color: #29627e;
 }
 
-#lesson-content > aside > p {
+#lesson-content aside > p {
   margin: 0.5rem;
 }
 
 /* fix horizontal overflow on mobile */
-#lesson-content > a {
+#lesson-content a {
   word-wrap: break-word;
 }
 
 #lesson-content > h1, h2, h3, h4, h5, h6 {
   margin-top: 3rem !important;
+}
+
+.live-code-editor {
+  resize: vertical;
+  overflow: auto;
 }

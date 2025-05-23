@@ -47,7 +47,9 @@
                 <p class="lead">{{ page.subheading }}</p>
               {% endif %}
             {% endunless %}
-            {% include toc_mobile.html %}
+            {% unless page.table_of_contents == false %}
+              {% include toc_mobile.html %}
+            {% endunless %}
             <main id="lesson-content"
                   data-controller="remote-repo"
                   {% if page.repo_url %}

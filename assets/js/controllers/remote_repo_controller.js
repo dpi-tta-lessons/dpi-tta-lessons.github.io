@@ -1,39 +1,44 @@
-// controllers/remote_markdown_controller.js
-import { Controller } from "@hotwired/stimulus";
-import { marked } from "marked";
-import DOMPurify from "dompurify";
+import { Controller } from "@hotwired/stimulus"
+import { marked } from "marked"
+import DOMPurify from "dompurify"
 
 export default class extends Controller {
   static values = {
-    url: String,              // e.g. https://github.com/org/repo
+    url: String, // e.g. https://github.com/org/repo
     branch: { type: String, default: "main" },
     path: { type: String, default: "content.md" }
   }
 
-  async connect () {
-    // 1. Build the raw URL: https://raw.githubusercontent.com/org/repo/<branch>/<path>
-    const rawBase = this.urlValue.replace("github.com", "raw.githubusercontent.com")
-    const url     = `${rawBase}/${this.branchValue}/${this.pathValue}`
+  connect() {
+    if (this.hasUrlValue) {
+      this.loadRemoteLesson()
+    } else {
+      // Static content — still notify others
+      this.dispatch("ready", { bubbles: true })
+    }
+  }
+
+  async loadRemoteLesson() {
+    const rawUrlBase = this.urlValue.replace("github.com", "raw.githubusercontent.com")
+    const contentUrl = `${rawUrlBase}/${this.branchValue}/${this.pathValue}`
 
     try {
-      const response = await fetch(url, { mode: "cors" });
-      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`)
+      const response = await fetch(contentUrl)
+      if (!response.ok) throw new Error(`Fetch error: ${response.status}`)
 
       const markdown = await response.text()
       const html = DOMPurify.sanitize(marked.parse(markdown))
 
-      // 2. Re-write relative links / images so they still work
-      const base = url.replace(/\/[^/]*$/, "/")
+      const base = contentUrl.replace(/\/[^/]*$/, "/")
       this.element.innerHTML = html.replace(
         /(src|href)="([^:"]+)"/g,
-        (_, attr, rel) => `${attr}="${new URL(rel, base)}"`
+        (_, attr, path) => `${attr}="${new URL(path, base)}"`
       )
 
-      this.element.dispatchEvent(new CustomEvent("lesson:loaded"))
+      this.dispatch("ready", { bubbles: true })
     } catch (error) {
+      this.element.innerHTML = `<p class="text-danger">Error loading lesson: ${error.message}</p>`
       console.error(error)
-      this.element.innerHTML =
-        `<p class="text-red-600">Couldn't load lesson (${error.message}).</p>`
     }
   }
 }

@@ -7,6 +7,15 @@ export default class extends Controller {
   }
 
   connect() {
+    this.init();
+  }
+
+  // NOTE: triggered by data-action="remote-repo:ready->boot#ready"
+  ready() {
+    this.init();
+  }
+
+  init() {
     const content = document.querySelector(this.contentValue || "#lesson");
     if (!content) return;
 

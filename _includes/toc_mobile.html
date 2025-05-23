@@ -1,16 +1,20 @@
 <!-- Mobile TOC toggle -->
-<button class="btn btn-outline-secondary d-lg-none mb-3"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#mobileTOC"
-        aria-expanded="false">
+<button
+  class="btn btn-outline-secondary d-lg-none mb-3"
+  type="button"
+  data-bs-toggle="collapse"
+  data-bs-target="#mobileTOC"
+  aria-expanded="false">
   On this page
 </button>
 
 <!-- Mobile TOC -->
-<nav id="mobileTOC"
-     class="collapse d-lg-none mb-4"
-     data-controller="toc"
-     data-toc-content-value="#lesson">
+<nav
+  id="mobileTOC"
+  class="collapse d-lg-none mb-4"
+  data-controller="toc"
+  data-toc-content-value="#lesson"
+  data-action="remote-repo:ready@document->toc#ready"
+>
   <ul class="nav flex-column small"></ul>
 </nav>

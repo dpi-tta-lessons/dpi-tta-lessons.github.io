@@ -1,6 +1,6 @@
-# lessons
+# Lessons
 
-Full stack application development lessons for beginners
+Full stack application development lessons for beginners.
 
 ## Development
 

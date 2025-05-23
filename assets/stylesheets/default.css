@@ -1,0 +1,60 @@
+/* lesson-content */
+
+#lesson-content aside {
+  width: 40%;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+  float: right;
+  box-shadow: inset 5px 0 5px -5px #29627e;
+  font-style: italic;
+  color: #29627e;
+}
+
+#lesson-content aside > p {
+  margin: 0.5rem;
+}
+
+/* fix horizontal overflow on mobile */
+#lesson-content a {
+  word-wrap: break-word;
+}
+
+#lesson-content > h1, h2, h3, h4, h5, h6 {
+  margin-top: 3rem !important;
+}
+
+.live-code-editor {
+  resize: vertical;
+  overflow: auto;
+}
+
+
+/* theme toggle */
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.15s ease-in;
+}
+
+/* TOC */
+
+:root {
+  --toc-offset-top: 5rem;
+}
+
+.toc-sticky {
+  position: sticky;
+  top: var(--toc-offset-top);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.toc-h3 {
+  padding-left: 0.75rem;
+  font-size: 0.9em;
+}

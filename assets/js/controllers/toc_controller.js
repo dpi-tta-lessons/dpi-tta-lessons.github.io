@@ -19,6 +19,8 @@ export default class extends Controller {
     this.toc.innerHTML = "";
     const headings = content.querySelectorAll(this.levelsValue.join(","));
     headings.forEach(heading => {
+      // TODO: set heading ids in another controller?
+      // TODO: add links to headings
       if (!heading.id) {
         heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, "-");
       }

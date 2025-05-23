@@ -1,10 +1,11 @@
 ---
 layout: default
+title: Lessons
+subheading: Full stack application development for beginners
+table_of_contents: false
 ---
 
-<h1>Lessons</h1>
-<p class="lead">Full stack application development for beginners</p>
-
+<!-- TODO: group by directory? metadata? tags? -->
 {% assign lessons = site.pages | where_exp: 'page', 'page.path contains "lessons/"' %}
 
 <ul>

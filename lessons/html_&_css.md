@@ -1,5 +1,4 @@
 ---
-layout: lesson
 title: HTML & CSS
 subheading: Get your first taste of HTML & CSS coding with our crash course.
 ---
@@ -93,7 +92,7 @@ Within the value of the `style` attribute, we can write **CSS** (Cascading Style
 
 In this CSS:
 
-```
+```css
 color: red
 ```
 
@@ -229,7 +228,6 @@ So, then: how can we position content around the page, rather than all on the sa
 <span>Another good place to learn is Khan Academy.</span>
 ```
 {: .language-html .live-code }
-
 
 Right now, they run into each other and form a wall of text. What's the solution?
 
@@ -378,7 +376,7 @@ For elements that are `display: block`, we can set a few useful properties:
 * `border`: How much space we want the border to take up.
 * `margin`: How much space we want _outside_ the border of the element (between it and its neighbors).
 
-![](https://res.cloudinary.com/dmxgp9oq2/image/upload/v1687385113/Screen_Shot_2023-06-21_at_5.05.02_PM_frg6ku.png)
+![margin border padding](https://res.cloudinary.com/dmxgp9oq2/image/upload/v1687385113/Screen_Shot_2023-06-21_at_5.05.02_PM_frg6ku.png)
 
 For example:
 

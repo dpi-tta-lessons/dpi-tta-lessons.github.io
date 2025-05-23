@@ -8,7 +8,8 @@
 
     <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon/favicon.ico' | relative_url }}">
 
-    <link rel="stylesheet" href="{{ '/assets/stylesheets/default.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/stylesheets/lesson.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/stylesheets/toc.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/stylesheets/theme_toggle.css' | relative_url }}">
 
     <!-- Bootstrap CDN -->
@@ -20,8 +21,11 @@
         "imports": {
           "monaco-editor": "https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/+esm",
           "@hotwired/stimulus": "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js",
+          "marked": "https://cdn.jsdelivr.net/npm/marked@15.0.12/lib/marked.esm.js",
+          "dompurify": "https://esm.sh/dompurify@3.2.6",
           "controllers/boot_controller": "/assets/js/controllers/boot_controller.js",
           "controllers/live_code_controller": "/assets/js/controllers/live_code_controller.js",
+          "controllers/remote_repo_controller": "/assets/js/controllers/remote_repo_controller.js",
           "controllers/theme_toggle_controller": "/assets/js/controllers/theme_toggle_controller.js",
           "controllers/toc_controller": "/assets/js/controllers/toc_controller.js"
         }
@@ -30,11 +34,38 @@
     <script type="module" src="{{ '/assets/js/application.js' | relative_url }}"></script>
 
   </head>
-  <body>
+  <body data-controller="boot">
     {% include nav.html %}
-    <main class="container py-4">
-      {{ content }}
-    </main>
+    <div class="container py-4">
+      <div class="row">
+        <!-- Lesson + TOC wrapper -->
+        <div class="col-12 d-flex flex-column flex-lg-row gap-3">
+          <!-- Main lesson content -->
+          <div class="col-lg-9" id="lesson">
+            {% unless page.repo_url %}
+              <h1>{{ page.title }}</h1>
+            {% endunless %}
+            {% if page.subheading %}
+              <p class="lead">{{ page.subheading }}</p>
+            {% endif %}
+            {% include toc_mobile.html %}
+            <main id="lesson-content">
+              {{ content }}
+              {% if page.repo_url %}
+                <div
+                  data-controller="remote-repo"
+                  data-remote-repo-url-value="{{ page.repo_url | escape }}">
+                  <p>Loading lesson…</p>
+                </div>
+              {% endif %}
+            </main>
+          </div>
+          {% unless page.table_of_contents == false %}
+            {% include toc_desktop.html %}
+          {% endunless %}
+        </div>
+      </div>
+    </div>
     {% include footer.html %}
-  </body>  
+  </body>
 </html>

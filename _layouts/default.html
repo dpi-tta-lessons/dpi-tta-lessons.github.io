@@ -51,6 +51,7 @@
             {% unless page.table_of_contents == false %}
               {% include toc_mobile.html %}
             {% endunless %}
+            {% include github_link.html %}
             <main id="lesson-content"
                   data-controller="remote-repo"
                   {% if page.repo_url %}

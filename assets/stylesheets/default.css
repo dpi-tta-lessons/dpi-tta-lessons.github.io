@@ -59,6 +59,20 @@
   transition: opacity 0.15s ease-in;
 }
 
+/* GitHub link */
+.github-link {
+  display: flex;
+}
+
+.github-link .btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.github-link .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 /* TOC */
 
 :root {

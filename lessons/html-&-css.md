@@ -1,6 +1,7 @@
 ---
 title: HTML & CSS
 subheading: Get your first taste of HTML & CSS coding with our crash course.
+# repo_url: https://github.com/dpi-tta-lessons/html-css-crash-course
 ---
 
 ## Just text
@@ -406,12 +407,12 @@ CSS provides a better way: **style rules**. First, we need a `<style>` element i
 
 ```html
 <style>
-  /* div {
+  div {
     width: 200px;
     padding: 20px;
     border: solid red 5px;
     margin: 30px;
-  }  */
+  } 
 </style>
 
 <div>You can learn about the world at Wikipedia.</div>
@@ -424,14 +425,13 @@ CSS provides a better way: **style rules**. First, we need a `<style>` element i
 
 In the style rule:
 
-<!-- TODO: fix css styles running wild -->
 ```css
-/* div {
+div {
   width: 200px;
   padding: 20px;
   border: solid red 5px;
   margin: 30px;
-}  */
+} 
 ```
 {: .language-css .live-code }
 
@@ -472,12 +472,12 @@ In the same example, what if we wanted to make text in the second `div` red, but
 
 ```html
 <style>
-  /* div {
+  div {
     width: 200px;
     padding: 20px;
     border: solid red 5px;
     margin: 30px;
-  }  */
+  } 
 </style>
 
 <div>You can learn about the world at Wikipedia.</div>
@@ -486,20 +486,20 @@ In the same example, what if we wanted to make text in the second `div` red, but
 
 <span style="display: block">I'm a span, unlike the above two blocks, which are divs.</span>
 ```
-<!-- TODO: fix css styles running wild -->
+{: .language-html .live-code }
 
 Since `div` is a tag-type selector, if we add `color: red` to the declaration block, it will apply to _all_ `<div>` elements in the document:
 
 ```html
 <style>
-  /* div {
+  div {
     width: 200px;
     padding: 20px;
     border: solid red 5px;
     margin: 30px;
 
     color: red;
-  }  */
+  } 
 </style>
 
 <div>You can learn about the world at Wikipedia.</div>
@@ -508,19 +508,18 @@ Since `div` is a tag-type selector, if we add `color: red` to the declaration bl
 
 <span style="display: block">I'm a span, unlike the above two blocks, which are divs.</span>
 ```
-<!-- TODO: fix css styles running wild -->
-<!-- {: .repl #tag_selector_too_broad title="Tag selector too broad" points="1"} -->
+{: .language-html .live-code }
 
 We could achieve the more precise targeting we want by dropping back down to an inline `style=""` attribute:
 
 ```html
 <style>
-  /* div {
+  div {
     width: 200px;
     padding: 20px;
     border: solid red 5px;
     margin: 30px;
-  }  */
+  } 
 </style>
 
 <div>You can learn about the world at Wikipedia.</div>
@@ -529,8 +528,7 @@ We could achieve the more precise targeting we want by dropping back down to an 
 
 <span style="display: block">I'm a span, unlike the above two blocks, which are divs.</span>
 ```
-<!-- TODO: fix css styles running wild -->
-<!-- {: .repl #inline_style title="Add inline style" points="1"} -->
+{: .language-html .live-code }
 
 This does what we want, but we've lost the nice ability to affect hundreds or thousands of elements at once with a style rule.
 
@@ -538,7 +536,7 @@ What's the solution? A **class-level selector**:
 
 ```html
 <style>
-  /* div {
+  div {
     width: 200px;
     padding: 20px;
     border: solid red 5px;
@@ -547,7 +545,7 @@ What's the solution? A **class-level selector**:
  
   .danger {
     color: red
-  } */
+  }
 </style>
 
 <div>You can learn about the world at Wikipedia.</div>
@@ -556,8 +554,7 @@ What's the solution? A **class-level selector**:
 
 <span class="danger" style="display: block">I'm a span, unlike the above two blocks, which are divs.</span>
 ```
-<!-- TODO: fix css styles running wild -->
-<!-- {: .repl #class_selector title="Class selector" points="1"} -->
+{: .language-html .live-code }
 
 In the above example:
 
@@ -612,7 +609,7 @@ As discussed above, the default system that an element uses to position its chil
   <div class="child">C</div>
 </div>
 ```
-{: .language-css .live-code }
+{: .language-html .live-code }
 
 The three inner `div`s have the class `child`, so they have a border, etc. They are still vertically stacked on top of each other even though they are narrow, because they are blocks and the parent element uses flow to lay them out.
 

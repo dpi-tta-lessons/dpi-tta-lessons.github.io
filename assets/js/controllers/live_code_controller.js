@@ -2,6 +2,8 @@ import { Controller } from "@hotwired/stimulus";
 import * as monaco from "monaco-editor";
 
 export default class extends Controller {
+
+  // TODO: move to ready?
   connect() {
     if (!this.element.querySelector("code")) return;
     this.buildEditorElements();

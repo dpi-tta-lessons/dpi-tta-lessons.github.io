@@ -21,6 +21,24 @@
 
 #lesson-content > h1, h2, h3, h4, h5, h6 {
   margin-top: 3rem !important;
+  position: relative;
+}
+
+.heading-link {
+  opacity: 0;
+  color: var(--bs-primary);
+  transition: opacity 0.15s ease-in-out;
+  margin-left: 0.5rem;
+  text-decoration: none;
+}
+
+#lesson-content h1:hover .heading-link,
+#lesson-content h2:hover .heading-link,
+#lesson-content h3:hover .heading-link,
+#lesson-content h4:hover .heading-link,
+#lesson-content h5:hover .heading-link,
+#lesson-content h6:hover .heading-link {
+  opacity: 1;
 }
 
 .live-code-editor {

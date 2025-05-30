@@ -20,7 +20,9 @@ export default class extends Controller {
     if (!content) return;
 
     this.toc = this.element.querySelector("ul");
-    this.buildTOC(content);
+    // Use #lesson-content instead of #lesson to ensure we process the actual lesson content
+    const lessonContent = document.querySelector("#lesson-content");
+    this.buildTOC(lessonContent || content);
     this.setupScrollSpy();
   }
 
@@ -28,11 +30,12 @@ export default class extends Controller {
     this.toc.innerHTML = "";
     const headings = content.querySelectorAll(this.levelsValue.join(","));
     headings.forEach(heading => {
-      // TODO: set heading ids in another controller?
-      // TODO: add links to headings
       if (!heading.id) {
         heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, "-");
       }
+
+      // Add anchor link to the heading
+      this.addAnchorLink(heading);
 
       const li = document.createElement("li");
       li.className = `nav-item toc-${heading.tagName.toLowerCase()}`;
@@ -41,8 +44,26 @@ export default class extends Controller {
     });
   }
 
+  addAnchorLink(heading) {
+    // Only add the link if it doesn't already have one
+    if (!heading.querySelector('.heading-link')) {
+      const anchor = document.createElement('a');
+      anchor.className = 'heading-link';
+      anchor.href = `#${heading.id}`;
+      anchor.setAttribute('aria-hidden', 'true');
+      anchor.innerHTML = ' <i class="bi bi-link-45deg"></i>';
+      
+      // Add the link to the heading
+      heading.appendChild(anchor);
+    }
+  }
+
   setupScrollSpy() {
-    const headings = document.querySelectorAll(this.levelsValue.join(","));
+    const lessonContent = document.querySelector("#lesson-content");
+    const headings = lessonContent ? 
+      lessonContent.querySelectorAll(this.levelsValue.join(",")) : 
+      document.querySelectorAll(this.levelsValue.join(","));
+      
     const links = Array.from(this.element.querySelectorAll("a.nav-link"));
     const observer = new IntersectionObserver(entries => {
       // Get all intersecting entries that are visible

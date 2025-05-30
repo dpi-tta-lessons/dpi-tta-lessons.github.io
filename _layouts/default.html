@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,44 +32,50 @@
 
   </head>
   <body
+    class="d-flex flex-column h-100"
     data-controller="boot"
     data-action="remote-repo:ready@document->boot#ready"
   >
-    {% include nav.html %}
-    <div class="container py-4">
-      <div class="row">
-        <!-- Lesson + TOC wrapper -->
-        <div class="col-12 d-flex flex-column flex-lg-row gap-3">
-          <!-- Main lesson content -->
-          <div class="col-lg-9" id="lesson">
-            {% unless page.repo_url %}
-              <h1>{{ page.title }}</h1>
-              {% if page.subheading %}
-                <p class="lead">{{ page.subheading }}</p>
-              {% endif %}
-            {% endunless %}
-            {% unless page.table_of_contents == false %}
-              {% include toc_mobile.html %}
-            {% endunless %}
-            {% include github_link.html %}
-            <main id="lesson-content"
-                  data-controller="remote-repo"
-                  {% if page.repo_url %}
-                    data-remote-repo-url-value="{{ page.repo_url | escape }}"
-                  {% endif %}
-            >
-              <!-- TODO: loading lesson spinner -->
+    <header>
+      {% include nav.html %}
+    </header>
+    
+    <main class="flex-shrink-0">
+      <div class="container py-4">
+        <div class="row">
+          <!-- Lesson + TOC wrapper -->
+          <div class="col-12 d-flex flex-column flex-lg-row gap-3">
+            <!-- Main lesson content -->
+            <div class="col-lg-9" id="lesson">
               {% unless page.repo_url %}
-                {{ content }}
+                <h1>{{ page.title }}</h1>
+                {% if page.subheading %}
+                  <p class="lead">{{ page.subheading }}</p>
+                {% endif %}
               {% endunless %}
-            </main>
+              {% unless page.table_of_contents == false %}
+                {% include toc_mobile.html %}
+              {% endunless %}
+              {% include github_link.html %}
+              <div id="lesson-content"
+                    data-controller="remote-repo"
+                    {% if page.repo_url %}
+                      data-remote-repo-url-value="{{ page.repo_url | escape }}"
+                    {% endif %}
+              >
+                <!-- TODO: loading lesson spinner -->
+                {% unless page.repo_url %}
+                  {{ content }}
+                {% endunless %}
+              </div>
+            </div>
+            {% unless page.table_of_contents == false %}
+              {% include toc_desktop.html %}
+            {% endunless %}
           </div>
-          {% unless page.table_of_contents == false %}
-            {% include toc_desktop.html %}
-          {% endunless %}
         </div>
       </div>
-    </div>
+    </main>
     {% include footer.html %}
   </body>
 </html>

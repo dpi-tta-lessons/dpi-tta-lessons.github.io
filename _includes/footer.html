@@ -1,12 +1,48 @@
-<footer class="py-4 py-md-5 mt-5 bg-secondary">
-  <div class="row m-4">
-    <!-- TODO: maybe add logo image back later?
-    <div class="col-sm-4 offset-sm-4">
-      <img src="{{ 'assets/images/dpi-side-white-green.png' | relative_url }}" alt="Discovery Partners Institute" class="img-fluid">
+<footer class="footer mt-auto bg-body-tertiary border-top">
+  <div class="container py-5">
+    <div class="row gy-4">
+      <!-- Logo and Description Column -->
+      <div class="col-12 col-md-5">
+        <div class="mb-3">
+          <img src="{{ '/assets/images/dpi-side-white-green.png' | relative_url }}" alt="Discovery Partners Institute" class="img-fluid footer-logo" style="max-height: 60px;">
+        </div>
+        <p class="text-body-secondary">
+          Full Stack Discovery is an open-source web development resource created by Discovery Partners Institute, University of Illinois System. Our aim is to support basic web literacy through clear, understandable lessons, real-world examples, and support.
+        </p>
+      </div>
+      
+      <!-- Links Column -->
+      <div class="col-6 col-md-3 offset-md-1">
+        <h5>Resources</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+            <a href="https://github.com/dpi-tta-lessons/dpi-tta-lessons.github.io" target="_blank" class="nav-link p-0 text-body-secondary">
+              <i class="bi bi-github me-1"></i> View on GitHub
+            </a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="https://dpi.uillinois.edu/" target="_blank" class="nav-link p-0 text-body-secondary">
+              <i class="bi bi-building me-1"></i> Discovery Partners Institute
+            </a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="https://dpi.dev/" target="_blank" class="nav-link p-0 text-body-secondary">
+              <i class="bi bi-code-slash me-1"></i> Tech Talent Accelerator
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    -->
-  </div>
-  <div class="row m-4">
-    Full Stack Discovery is an open-source web development resource created by Discovery Partners Institute, University of Illinois System. The aim is to support basic web literacy to all through clear, understandable lessons, real-world examples, and support.
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 mt-4 border-top">
+      <p class="text-body-secondary">© 2025 Discovery Partners Institute, University of Illinois System</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3">
+          <a class="text-body-secondary" href="https://github.com/dpi-tta-lessons" target="_blank">
+            <i class="bi bi-github fs-5"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </footer>
